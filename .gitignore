@@ -5,5 +5,5 @@
 *.log
 
 #properties 
-RevatureProject1/src/main/resources/database.properties
+src/main/resources/database.properties
 target/classes/database.properties
