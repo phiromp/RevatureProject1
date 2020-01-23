@@ -9,4 +9,26 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!--  servlet tag for configuring servlet -->
+  <servlet>
+  	<servlet-name>InsertServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.InsertServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>InsertServlet</servlet-name>
+    <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.DeleteServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>DeleteServlet</servlet-name>
+    <url-pattern>/Remove</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
