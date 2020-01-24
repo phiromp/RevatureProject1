@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.util.ConnectionFactory;
 
-public class InsertServlet extends HttpServlet {
+public class UpdateServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("in the insert do get");
-		RequestDispatcher rd = req.getRequestDispatcher("Register.html");
+		System.out.println("in the update do get");
+		RequestDispatcher rd = req.getRequestDispatcher("Update.html");
 		rd.include(req, resp);
 	    
 	}
@@ -28,12 +28,13 @@ public class InsertServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String name = req.getParameter("uname");
-		String id = req.getParameter("identity");
-		String type = req.getParameter("type");
+		String newName = req.getParameter("newname");
+		String newid = req.getParameter("newid");
+		String newType = req.getParameter("newtype");
 		
-		ConnectionFactory.insertHero(name, id, type);
+		ConnectionFactory.UpdateHero(name, newName, newid, newType);
 		
-		resp.sendRedirect("http://localhost:8080/RevatureProject1/Register");
+		resp.sendRedirect("http://localhost:8080/RevatureProject1/Update");
 
 	}
 	

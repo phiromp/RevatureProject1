@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <title>Remove Form</title>
+  <title>Update Form</title>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -12,7 +12,7 @@
       font-size: 15px;
       }
       form {
-      border: 5px solid #f1f1f1;
+      border: 5px solid #088E16;
       }
       input[type=text], input[type=password] {
       width: 100%;
@@ -26,10 +26,10 @@
       font-size: 110px;
       display: flex;
       justify-content: center;
-      color: #A22E15;
+      color: #088E16;
       }
       button {
-      background-color: #A22E15;
+      background-color: #088E16;
       color: white;
       padding: 14px 0;
       margin: 10px 0;
@@ -57,10 +57,14 @@
       padding-top: 0;
       padding-right: 15px;
       }
-      span.upd {
-      float: right;
+      span.reg {
+      float: left;
       padding-top: 0;
-      padding-right: 15px;
+      padding-left: 15px;
+      }
+      span.reg {
+      float: center;
+      padding-top: 0;
       }
       /* Change styles for span on extra small screens */
       @media screen and (max-width: 300px) {
@@ -68,12 +72,23 @@
       display: block;
       float: none;
       }
+      
+      /*
+      table {
+       border: 5;
+       width: 50%;
+       cellpadding: 4;
+       cellspacing: 3;
+       justify-content: center;
+      }
+      */
+      
     </style>
   </head>
   <body>
-    <form action="/RevatureProject1/Remove" method="post">
-     <div class="table">
-	     <TABLE BORDER="5" width="70%" CELLPADDING="4" CELLSPACING="3" ALIGN="center">
+<form action="/RevatureProject1/Update" method="post">
+	  <div class="table">
+	     <TABLE BORDER="5" width="50%" CELLPADDING="4" CELLSPACING="3" ALIGN="center">
 	     <TR>
 	        <TH COLSPAN="3"><BR>
 	           <H3>Super Human Registry</H3>
@@ -91,19 +106,30 @@
 	     </TR>
 	  </TABLE>
 	  </div>
-      <h1>Delete Super Human</h1>
+      <h1>Update Super Human</h1>
       <div class="icon">
         <i class="fas fa-user-circle"></i>
       </div>
       <div class="formcontainer">
       <div class="container">
-        <label for="uname2"><strong>Hero Name</strong></label>
+        <label for="uname"><strong>Hero Name To Update</strong></label>
         <input type="text" placeholder="Enter hero name" name="uname" required>
+        
+     
+        <h2>UPDATE INFO</h2>
+        
+        <label for="uname"><strong>Update Hero Name</strong></label>
+        <input type="text" placeholder="Enter new hero name" name="newname" required>
+        <label for="newid"><strong>Updated True Identity</strong></label>
+        <input type="text" placeholder="Enter new true identity" name="newid" required>
+        <label for="newtype"><strong>Updated Super Human Type</strong></label>
+        <input type="text" placeholder="Enter new super human type" name="newtype" required>
       </div>
-      <button type="submit"><strong>Remove</strong></button>
+      <button type="submit" formmethod="post"><strong>Update</strong></button>
       <div class="container" style="background-color: #eee">
-        <span class="psw"><a href="Register">Add Super Human?</a></span>
-        <span class="upd"><a href="Update">Update Super Human?</a></span>
+        <span class="psw"><a href="Remove">Delete Super Human?</a></span>
+        <span class="reg"><a href="Register">Add Super Human?</a></span>
+        <span class="tab"><a href="Table">View Super Humans</a></span>
       </div>
       </div>
     </form>

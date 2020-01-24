@@ -95,6 +95,15 @@ public class ConnectionFactory {
 		executeSQL(sql);
 	}
 	
+	public static void UpdateHero(String name, String newName, String newid, String newType) {
+
+		String sql = "update project1.superhuman set hero_name = '" + newName + "', true_identity = '" + newid + 
+				"', alignmentid = " + Integer.parseInt(newType) + " where hero_name = '" + name + "'";
+		executeSQL(sql);
+		
+	}
+	
+	
 	public static void executeSQL(String sql) {
 		Connection conn = getConnection();
 		try {
@@ -111,6 +120,7 @@ public class ConnectionFactory {
 			}
 		}
 	}
+
 	
 
 }

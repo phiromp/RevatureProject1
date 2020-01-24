@@ -3,6 +3,7 @@ package com.revature.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,9 @@ public class DeleteServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("in the remove servlet Get");
+		RequestDispatcher rd = req.getRequestDispatcher("Remove.html");
+		rd.include(req, resp);
+	    
 	}
 
 	@Override

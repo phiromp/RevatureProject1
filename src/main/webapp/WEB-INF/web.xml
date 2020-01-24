@@ -31,4 +31,24 @@
     <url-pattern>/Remove</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.UpdateServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>UpdateServlet</servlet-name>
+    <url-pattern>/Update</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>TableServlet</servlet-name>
+  	<servlet-class>com.revature.servlet.TableServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>TableServlet</servlet-name>
+    <url-pattern>/Table</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
