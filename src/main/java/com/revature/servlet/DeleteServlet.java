@@ -22,11 +22,10 @@ public class DeleteServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("in the delete Post");
 		
 		String name = req.getParameter("uname");
 		
-		//ConnectionFactory.deleteHero(name, id, type);
+		ConnectionFactory.deleteHero(name);
 		
 		resp.sendRedirect("http://localhost:8080/RevatureProject1/Remove.html");
 

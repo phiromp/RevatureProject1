@@ -34,20 +34,15 @@ public class ConnectionFactory {
 	
 	public ConnectionFactory() {
 		
-		Properties prop = new Properties();
-		
-		try (FileInputStream fis = new FileInputStream(PROPERTIES_FILE)){
-			
-			prop.load(fis);
-			url = prop.getProperty("url");
-			user = prop.getProperty("user");
-			password = prop.getProperty("password");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		url = System.getenv("POSTGRES_2001_URL");
+		user = System.getenv("POSTGRES_2001_USERNAME");
+		password = System.getenv("POSTGRES_2001_PASSWORD");
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public Connection createConnection() {
@@ -87,7 +82,7 @@ public class ConnectionFactory {
 	
 	public static void insertHero(String name, String id, String type) {
 		System.out.println("inserting: " + name + " " + id + " " + type);
-		String sql = "insert into project1.superhuman (hero_name, true_identity, super_type)"
+		String sql = "insert into project1.superhuman (hero_name, true_identity, alignmentid)"
 				+ " values ('" + name + "', '" + id + "', " + Integer.parseInt(type) + " )";
 	
 		executeSQL(sql);
@@ -95,7 +90,7 @@ public class ConnectionFactory {
 	
 	public static void deleteHero(String name) {
 		System.out.println("deleting: " + name);
-		String sql = "delete from project1.superhuman hero_name = '" + name + "' )";
+		String sql = "delete from project1.superhuman where hero_name = '" + name + "'";
 		
 		executeSQL(sql);
 	}
