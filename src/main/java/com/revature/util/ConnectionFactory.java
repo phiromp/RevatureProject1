@@ -1,14 +1,10 @@
 package com.revature.util;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 
 public class ConnectionFactory {
 	
@@ -19,9 +15,7 @@ public class ConnectionFactory {
 	private static String password;
 	
 	private static ConnectionFactory cf;
-	
-	private static final String PROPERTIES_FILE = "src/main/resources/database.properties";
-	
+		
 	public static Connection getConnection() {
 		
 		if (cf == null) {
@@ -29,7 +23,6 @@ public class ConnectionFactory {
 		}
 		
 		return cf.createConnection();
-		
 	}
 	
 	public ConnectionFactory() {
@@ -59,7 +52,7 @@ public class ConnectionFactory {
 		
 	}
 	
-	public static ResultSet sendCommand(String sql) {
+	public static ResultSet getResultSet(String sql) {
 				
 		Connection conn = getConnection();
 		
@@ -79,30 +72,6 @@ public class ConnectionFactory {
 		}
 		return null;
 	}
-	
-	public static void insertHero(String name, String id, String type) {
-		System.out.println("inserting: " + name + " " + id + " " + type);
-		String sql = "insert into project1.superhuman (hero_name, true_identity, alignmentid)"
-				+ " values ('" + name + "', '" + id + "', " + Integer.parseInt(type) + " )";
-	
-		executeSQL(sql);
-	}
-	
-	public static void deleteHero(String name) {
-		System.out.println("deleting: " + name);
-		String sql = "delete from project1.superhuman where hero_name = '" + name + "'";
-		
-		executeSQL(sql);
-	}
-	
-	public static void UpdateHero(String name, String newName, String newid, String newType) {
-
-		String sql = "update project1.superhuman set hero_name = '" + newName + "', true_identity = '" + newid + 
-				"', alignmentid = " + Integer.parseInt(newType) + " where hero_name = '" + name + "'";
-		executeSQL(sql);
-		
-	}
-	
 	
 	public static void executeSQL(String sql) {
 		Connection conn = getConnection();

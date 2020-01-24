@@ -2,8 +2,10 @@ package com.revature.service;
 
 public interface RegistryService {
 
-	public void registerSuperHuman();
+	public void insertHero(String name, String id, String type);
 	
-	public void removeSuperHuman();
+	public void deleteHero(String name);
+	
+	public void UpdateHero(String name, String newName, String newid, String newType);
 	
 }

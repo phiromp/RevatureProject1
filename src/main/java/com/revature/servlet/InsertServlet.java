@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.revature.service.RegistryServiceImpl;
 import com.revature.util.ConnectionFactory;
 
 public class InsertServlet extends HttpServlet {
@@ -31,7 +32,8 @@ public class InsertServlet extends HttpServlet {
 		String id = req.getParameter("identity");
 		String type = req.getParameter("type");
 		
-		ConnectionFactory.insertHero(name, id, type);
+		RegistryServiceImpl service = new RegistryServiceImpl();
+		service.insertHero(name, id, type);
 		
 		resp.sendRedirect("http://localhost:8080/RevatureProject1/Register");
 
@@ -39,34 +41,3 @@ public class InsertServlet extends HttpServlet {
 	
 }
 
-//resp.setContentType("text/html");
-//PrintWriter out = resp.getWriter();
-//out.println("<html>");
-//out.println("<head><title>All HEROS</title></head>");
-//out.println("<body>");
-//out.println("<center><h1>All HEROS</h1>");
-//
-//String sql = "select s.hero_name, s.true_identity, a.super_type \r\n" + 
-//			"	from project1.superhuman s left join superhuman_alignment a\r\n" + 
-//			"	on s.alignmentid = a.alignmentid ;";
-//
-//ResultSet rs = ConnectionFactory.sendCommand(sql);
-//try {
-//	while (rs.next()) {
-//		String name = rs.getString(1);
-//		String trueid = rs.getString(2);
-//		String type = rs.getString(3);
-//		
-//		out.print(name + "::");
-//		out.print(trueid + "::");
-//		out.println(type + "----------\n");
-//	}
-//} catch (SQLException e) {
-//	// TODO Auto-generated catch block
-//	e.printStackTrace();
-//}
-//
-//out.println("</center>");
-//out.println("</body>");
-//out.println("</html>");
-//out.close();

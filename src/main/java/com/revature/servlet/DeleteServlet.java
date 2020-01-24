@@ -1,7 +1,6 @@
 package com.revature.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.revature.service.RegistryServiceImpl;
 
-import com.revature.superhumanregistry.SuperHumanRegistry;
-import com.revature.util.ConnectionFactory;
 
 @WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet {
@@ -28,8 +26,8 @@ public class DeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String name = req.getParameter("uname");
-		
-		ConnectionFactory.deleteHero(name);
+		RegistryServiceImpl service = new RegistryServiceImpl();
+		service.deleteHero(name);
 		
 		resp.sendRedirect("http://localhost:8080/RevatureProject1/Remove.html");
 

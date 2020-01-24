@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +27,7 @@ public class TableServlet extends HttpServlet {
 					"	from project1.superhuman s left join superhuman_alignment a\r\n" + 
 					"	on s.alignmentid = a.alignmentid ;";
 
-		ResultSet rs = ConnectionFactory.sendCommand(sql);
+		ResultSet rs = ConnectionFactory.getResultSet(sql);
 		try {
 			while (rs.next()) {
 				String name = rs.getString(1);
@@ -42,7 +39,6 @@ public class TableServlet extends HttpServlet {
 				out.println(type + "----------\n");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
