@@ -29,24 +29,20 @@ public class TableServlet extends HttpServlet {
 					"	on s.alignmentid = a.alignmentid ;";
 
 		ResultSet rs = ConnectionFactory.getResultSet(sql);
-		try {
-			while (rs.next()) {
-				String name = rs.getString(1);
-				String trueid = rs.getString(2);
-				String type = rs.getString(3);
-				
-				out.print(name + "::");
-				out.print(trueid + "::");
-				out.println(type + "----------\n");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 
 		out.println("</center>");
 		out.println("<div class='container' style='background-color: #eee'>");
 		out.println("<span><a href='Register'>Add Super Human?</a></span>");
         out.println("</div>");
+        out.println("<TABLE BORDER><TR><TH>Super Human<TH>True Identity<TH>Human Type</TR>");
+        try {
+			while(rs.next()) {
+			    out.format("<TR ALIGN=RIGHT><TD>%s<TD>%s<TD>%s%n", rs.getString(1), rs.getString(2), rs.getString(3) );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+        out.println("</TABLE>");
 		out.println("</body>");
 		out.println("</html>");
 		out.close();

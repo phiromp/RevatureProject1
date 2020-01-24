@@ -49,7 +49,7 @@ public class SuperHumanRegistry {
 		String sql = "select s.hero_name, s.true_identity, a.super_type \r\n" + 
 				"	from project1.superhuman s left join superhuman_alignment a\r\n" + 
 				"	on s.alignmentid = a.alignmentid ;";
-		ResultSet rs = ConnectionFactory.sendCommand(sql);
+		ResultSet rs = ConnectionFactory.getResultSet(sql);
 
 		while (rs.next()) {
 			SuperHumanRegistry temp = new SuperHumanRegistry(rs.getString(1), rs.getString(2), rs.getString(3));
