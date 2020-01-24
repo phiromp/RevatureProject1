@@ -54,8 +54,12 @@ DELETE (or POST)         /delete-super-human                OR        /delete-su
 If you need to create additional endpoints you are welcome to.
 ----------Part 4 Implement your Presentation Layer (your UI): ---------------------
 As a user, I can view a table containing all registered heroes.
-As a user, I can create a new superhuman, using a form so that I may type in details about the superhuman.
+
+As a user, I can create a new superhuman, using a form so that I may type
+in details about the superhuman.
+ 	
 As a user, I can remove/delete superhumans using html forms.
+
 As a user, I can update a superhuman using html forms.
 
 
