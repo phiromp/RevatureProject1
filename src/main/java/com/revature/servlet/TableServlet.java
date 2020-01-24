@@ -45,7 +45,9 @@ public class TableServlet extends HttpServlet {
 
 		out.println("</center>");
 		out.println("<div class='container' style='background-color: #D0C806; align=center;'>");
-		out.println("<span><a href='Register'>Add Super Human?</a></span>");
+		out.println("<span><a href='Register'> | | Add Super Human | </a></span>");
+		out.println("<span><a href='Remove'> | Remove Super Human | </a></span>");
+		out.println("<span><a href='Update'> | Update Super Human | | </a></span>");
         out.println("</div>");
         out.println("<TABLE BORDER><TR style='font-size:24px;'><TH>Super Human<TH>True Identity<TH>Human Type</TR>");
         try {
