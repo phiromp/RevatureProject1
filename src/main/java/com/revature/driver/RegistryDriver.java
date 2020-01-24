@@ -64,6 +64,28 @@ Use CSS or a Styling Library to make your html pages pretty
 
 -----------Finally-------------------------
 Fully review your project code, and be able to explain it.
+
+
+
+     <div class="table">
+	     <TABLE BORDER="5" width="70%" CELLPADDING="4" CELLSPACING="3" ALIGN="center">
+	     <TR>
+	        <TH COLSPAN="3"><BR>
+	           <H3>Super Human Registry</H3>
+	        </TH>
+	     </TR>
+	     <TR>
+	        <TH>Super Human Name</TH>
+	        <TH>True Identity</TH>
+	        <TH>Super Human Type</TH>
+	     </TR>
+	     <TR ALIGN="CENTER">
+	        <TD>Data 1</TD>
+	        <TD>Data 2</TD>
+	        <TD>Data 3</TD>    
+	     </TR>
+	  </TABLE>
+	  </div>
 */
 
 

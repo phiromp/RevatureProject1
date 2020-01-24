@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.util.ConnectionFactory;
 
+@SuppressWarnings("serial")
 public class TableServlet extends HttpServlet {
 
 	@Override

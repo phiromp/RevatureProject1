@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.service.RegistryServiceImpl;
 
 
+@SuppressWarnings("serial")
 @WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet {
 
