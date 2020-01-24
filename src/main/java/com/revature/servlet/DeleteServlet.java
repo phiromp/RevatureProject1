@@ -1,6 +1,7 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +13,6 @@ import com.revature.service.RegistryServiceImpl;
 
 
 @SuppressWarnings("serial")
-@WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet {
 
 	@Override
@@ -27,10 +27,18 @@ public class DeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String name = req.getParameter("uname");
-		RegistryServiceImpl service = new RegistryServiceImpl();
-		service.deleteHero(name);
+		RegistryServiceImpl service = new RegistryServiceImpl();		
+		boolean success = service.deleteHero(name);
+		PrintWriter out = resp.getWriter();  
 		
-		resp.sendRedirect("http://localhost:8080/RevatureProject1/Remove.html");
+		out.println("<script type=\"text/javascript\">");
+		if(success) 
+			out.println("alert('Succesfully Deleted');");
+		//else
+		//	out.println("alert('Registration Failed: SuperHuman doesn't exist');");
+		out.println("location='/RevatureProject1/Remove';");
+		out.println("</script>");
+	
 
 	}
 	

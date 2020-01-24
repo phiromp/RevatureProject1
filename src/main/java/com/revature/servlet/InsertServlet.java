@@ -1,6 +1,8 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,10 +29,22 @@ public class InsertServlet extends HttpServlet {
 		String type = req.getParameter("type");
 		
 		RegistryServiceImpl service = new RegistryServiceImpl();
-		service.insertHero(name, id, type);
+		boolean success = service.insertHero(name, id, type);
+		PrintWriter out = resp.getWriter();  
 		
-		resp.sendRedirect("http://localhost:8080/RevatureProject1/Register");
-
+		if(success) {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Succesfully Added');");
+			out.println("location='/RevatureProject1/Register';");
+			out.println("</script>");
+		}
+		else {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Registration Failed: SuperHuman already exists');");
+			out.println("location='/RevatureProject1/Register';");
+			out.println("</script>");
+		}
+		
 	}
 	
 }

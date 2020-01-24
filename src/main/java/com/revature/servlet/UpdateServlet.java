@@ -1,6 +1,8 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,10 +30,19 @@ public class UpdateServlet extends HttpServlet {
 		String newType = req.getParameter("newtype");
 		
 		RegistryServiceImpl service = new RegistryServiceImpl();
-		service.UpdateHero(name, newName, newid, newType);
-				
-		resp.sendRedirect("http://localhost:8080/RevatureProject1/Update");
-
+		boolean success = service.UpdateHero(name, newName, newid, newType);
+		PrintWriter out = resp.getWriter();  
+		
+		out.println("<script type=\"text/javascript\">");
+		if(success) 
+			out.println("alert('Succesfully Updated');");
+		//else
+		//	out.println("alert('Update Failed: SuperHuman doesn't exist');");
+		out.println("location='/RevatureProject1/Update';");
+		out.println("</script>");
+		
+		//resp.sendRedirect("http://localhost:8080/RevatureProject1/Update");
+		
 	}
 	
 }
