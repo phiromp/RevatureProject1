@@ -18,7 +18,6 @@ public class InsertServlet extends HttpServlet {
 		System.out.println("in the insert do get");
 		RequestDispatcher rd = req.getRequestDispatcher("Register.html");
 		rd.include(req, resp);
-	    
 	}
 
 	@Override
@@ -32,18 +31,15 @@ public class InsertServlet extends HttpServlet {
 		boolean success = service.insertHero(name, id, type);
 		PrintWriter out = resp.getWriter();  
 		
-		if(success) {
-			out.println("<script type=\"text/javascript\">");
+		out.println("<script type=\"text/javascript\">");
+		if(success)
 			out.println("alert('Succesfully Added');");
-			out.println("location='/RevatureProject1/Register';");
-			out.println("</script>");
-		}
-		else {
-			out.println("<script type=\"text/javascript\">");
+		else 
 			out.println("alert('Registration Failed: SuperHuman already exists');");
-			out.println("location='/RevatureProject1/Register';");
-			out.println("</script>");
-		}
+
+		out.println("location='/RevatureProject1/Register';");
+		out.println("</script>");
+		
 		
 	}
 	

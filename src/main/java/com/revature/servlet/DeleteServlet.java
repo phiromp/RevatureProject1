@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +26,7 @@ public class DeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String name = req.getParameter("uname");
+		
 		RegistryServiceImpl service = new RegistryServiceImpl();		
 		boolean success = service.deleteHero(name);
 		PrintWriter out = resp.getWriter();  
@@ -35,7 +35,8 @@ public class DeleteServlet extends HttpServlet {
 		if(success) 
 			out.println("alert('Succesfully Deleted');");
 		//else
-		//	out.println("alert('Registration Failed: SuperHuman doesn't exist');");
+			//out.println("alert('Registration Failed: SuperHuman doesn't exist');");
+		
 		out.println("location='/RevatureProject1/Remove';");
 		out.println("</script>");
 	
